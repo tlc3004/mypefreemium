@@ -1,13 +1,22 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
+import Navbar from './components/Navbar';
+import Home from './pages/Home';
 
-export default function App() {
+function App() {
+  const [usuario] = useState({ nombre: "Juan Pérez", plan: "free" });
+
   return (
-    <div className="h-screen bg-gradient-to-tr from-indigo-500 to-emerald-400 flex items-center justify-center text-white">
-      <h1 className="text-5xl font-bold">🚀 Tailwind 4.1.1 ACTIVO, Toño 🎉</h1>
+    <div className="min-h-screen bg-gray-50 text-gray-800">
+      <Navbar />
+      <header className="bg-white shadow p-4 mb-6">
+        <h1 className="text-2xl font-bold text-blue-600">MYPE Freemium</h1>
+        <p className="text-sm text-gray-600">Bienvenido, {usuario.nombre} | Plan: {usuario.plan}</p>
+      </header>
+      <main className="p-4">
+        <Home />
+      </main>
     </div>
   );
 }
 
+export default App;
